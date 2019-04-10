@@ -1,8 +1,8 @@
-require './lib/transaction'
+require './lib/transactions'
 
-describe Transaction do
+describe Transactions do
 
-  let (:trans) { Transaction.new }
+  let (:trans) { Transactions.new }
 
   context "#read" do
     it "Reads your transaction activity" do
@@ -12,8 +12,8 @@ describe Transaction do
 
   context "#add" do
     it "Adds new transaction data to array" do
-      trans.add({date: "09/04/2019", action: "credit", balance: 10})
-      expect(trans.read).to eq ([{date: "09/04/2019", action: "credit", balance: 10}])
+      trans.add({date: "09/04/2019", balance: "10.00", amount: "50.00"})
+      expect(trans.read).to eq ([{date: "09/04/2019", balance: "10.00", amount: "50.00"}])
     end
   end
 

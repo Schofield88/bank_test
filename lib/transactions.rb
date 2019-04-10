@@ -1,4 +1,4 @@
-class Transaction
+class Transactions
 
   def initialize
     @transactions = []
@@ -8,7 +8,8 @@ class Transaction
     @transactions
   end
 
-  def add(transaction)
+  def add(date:, balance:, amount:)
+    transaction = {date: date, amount: amount, balance: balance, }
     @transactions << transaction
   end
 
