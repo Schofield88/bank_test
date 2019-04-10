@@ -1,11 +1,13 @@
 require './lib/transactions'
+require './lib/statement'
 require 'date'
 
 class Account
 
-  def initialize(transactions = Transactions.new)
+  def initialize(transactions = Transactions.new, statement = Statement.new)
     @balance = 0
     @transaction = transactions
+    @statement = statement
   end
 
   def deposit(money)
@@ -20,6 +22,10 @@ class Account
     balance = @balance + money
     @transaction.add(date: Date.today, balance: balance, amount: amount)
     @balance -= money
+  end
+
+  def statement
+    @statement.format(@transaction.read)
   end
 
 end

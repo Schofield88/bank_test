@@ -9,7 +9,7 @@ class Transactions
   end
 
   def add(date:, balance:, amount:)
-    transaction = {date: date, amount: amount, balance: balance, }
+    transaction = { date: date, amount: amount, balance: balance }
     @transactions << transaction
   end
 
