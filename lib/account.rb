@@ -11,16 +11,12 @@ class Account
   end
 
   def deposit(money)
-    amount = money.to_s + " || -"
-    balance = @balance + money
-    @transaction.add(date: Time.now.strftime("%m/%d/%Y"), balance: balance, amount: amount)
+    @transaction.add(date: Time.now.strftime("%m/%d/%Y"), balance: (@balance + money), amount: (money.to_s + " || -"))
     @balance += money
   end
 
   def withdraw(money)
-    amount = " - ||" + money.to_s
-    balance = @balance + money
-    @transaction.add(date: Time.now.strftime("%m/%d/%Y"), balance: balance, amount: amount)
+    @transaction.add(date: Time.now.strftime("%m/%d/%Y"), balance: (@balance + money), amount: (" - ||" + money.to_s))
     @balance -= money
   end
 
